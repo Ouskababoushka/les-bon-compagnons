@@ -1,23 +1,27 @@
-<div class="cardcontainer">
-  <%= @products.each do |product| %>
-  <div class="cardindex center">
-    <div class="property-card">
-      <a href="#">
-        <div class="property-image">
-          <div class="property-image-title">
-            <h5>Card Title</h5>
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col mt-5">
+        <div class="cardindex center">
+          <div class="property-card">
+            <a href="#">
+              <div class="property-image">
+                <div class="property-image-title">
+                  <h5><%= product.name.capitalize%></h5>
+                </div>
+              </div>
+            </a>
+            <div class="property-description">
+              <h5> <%= product.name.capitalize%><%= product.price %>€</h5>
+              <p><%= product.description %></p>
+            </div>
+            <a href="#">
+              <div class="property-social-icons">
+              </div>
+            </a>
           </div>
-        </div></a>
-      <div class="property-description">
-        <h5> <%= product.name.capitalize%><%=  product.price %>€</h5>
-        <p><%= product.description %></p>
-      </div>
-      <a href="#">
-        <div class="property-social-icons">
-          <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
         </div>
-      </a>
-    </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
