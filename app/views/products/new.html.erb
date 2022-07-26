@@ -1,0 +1,22 @@
+<%= form_for(@product) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true, autofocus: true, placeholder: "Nom" %>
+  </p>
+  <p>
+    <%= f.label :category %><br>
+    <%= f.text_field :category, required: true, autofocus: true, placeholder: "Catégorie" %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description, required: true, autofocus: true, placeholder: "Description" %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price, required: true %>
+  </p>
+  <p>
+  <%= f.label :ajouter %><br>
+    <%= f.submit %>
+  </p>
+<% end %>
