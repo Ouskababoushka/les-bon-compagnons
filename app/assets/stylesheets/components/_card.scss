@@ -5,8 +5,8 @@
 
   *
   {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    // -webkit-box-sizing: border-box;
+    // box-sizing: border-box;
   }
 
   h5
@@ -35,7 +35,7 @@
   .property-card
   {
     height:18em;
-    width:20vw;
+    width:80vw;
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
@@ -56,7 +56,7 @@
   .property-image
   {
     height:6em;
-    width:20vw;
+    width:80vw;
     padding:1em 2em;
     position:Absolute;
     top:0px;
@@ -74,7 +74,7 @@
   {
     background-color: #FAFAFC;
     height:12em;
-    width:20vw;
+    width:80vw;
     position:absolute;
     bottom:0em;
     -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -138,6 +138,60 @@
   .property-card:hover .property-image-title
   {
   opacity:1;
+  }
+
+  @media (min-width: 768px) {
+    .property-card
+    {
+      height:18em;
+      width:20vw;
+      display:-webkit-box;
+      display:-ms-flexbox;
+      display:flex;
+      -webkit-box-orient:vertical;
+      -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+      flex-direction:column;
+      position:relative;
+      -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      border-radius:16px;
+      overflow:hidden;
+    }
+
+    /* Top Half of card, image. */
+
+    .property-image
+    {
+      height:6em;
+      width:20vw;
+      padding:1em 2em;
+      position:Absolute;
+      top:0px;
+      -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      background-image:url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+
+    /* Bottom Card Section */
+
+    .property-description
+    {
+      background-color: #FAFAFC;
+      height:12em;
+      width:20vw;
+      position:absolute;
+      bottom:0em;
+      -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      padding: 0.5em 1em;
+      text-align:center;
+    }
   }
 
 }
