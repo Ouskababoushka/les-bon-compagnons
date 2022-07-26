@@ -19,3 +19,5 @@ product3 = Product.create!(name: 'vin blanc', category: 'vin', description: 'il 
 product4 = Product.create!(name: 'rillette', category: 'apéro', description: 'elle est bonne ma rillette', price: 5.0)
 
 puts 'finish'
+
+puts "Total number of products: #{Product.all.count}"

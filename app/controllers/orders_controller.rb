@@ -15,28 +15,18 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    if @order.save
-      redirect_to order_path(@order)
-    else
-      render :new
+    @current_cart.line_items.each do |item|
+      @order.line_items << item
+      item.cart_id = nil
     end
+    @order.save
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
+    redirect_to root_path
   end
 
   def edit
     @order = Order.find(params[:id])
-  end
-
-  def update
-    @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to order_path(@order)
-  end
-
-  def destroy
-    @order = Order.find(params[:id])
-    @order.requests.delete_all
-    @order.delete
-    redirect_to :root
   end
 
   private

@@ -1,29 +1,31 @@
-<div class="container-fluid">
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col mt-5">
-        <div class="cardindex center">
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered is-multiline is-full-mobile">
+
+      <% @products.each do |product| %>
+        <div class="column is-centered">
           <div class="property-card">
             <a href="#">
+          <%= link_to product_path(product), :action => 'get' do %>
               <div class="property-image">
                 <div class="property-image-title">
                   <h5><%= product.name.capitalize%></h5>
                 </div>
               </div>
             </a>
+
             <div class="property-description">
-              <h5> <%= product.name.capitalize%><%= product.price %>€</h5>
+              <h5> <%= product.name.capitalize%> <%= product.price %>€</h5>
               <p><%= product.description %></p>
             </div>
             <div class="property-social-icons">
-            
-                <i class="fas fa-cart-plus"></i>
-
+              <i class="fas fa-cart-plus"></i>
             </div>
-            </a>
+          <% end %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+
+    </div>
   </div>
-</div>
+</section>
