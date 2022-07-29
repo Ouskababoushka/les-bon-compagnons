@@ -15,7 +15,7 @@
             </a>
 
             <div class="property-description">
-              <h5> <%= product.name.capitalize%> <%= product.price %>€</h5>
+              <h5> <%= product.name.capitalize%> <%= number_to_euro(product.price) %></h5>
               <p><%= product.description %></p>
             </div>
             <div class="property-social-icons">

@@ -1,11 +1,7 @@
-<%= form_for(@order) do |f| %>
+<%= simple_form_for(@order) do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name, required: true, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
   </p>
   <p>
     <%= f.label :address %><br>

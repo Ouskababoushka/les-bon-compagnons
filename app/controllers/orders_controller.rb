@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_admin!, only: [ :new, :create, :edit, :update ]
+  # skip_before_action :authenticate_admin!, only: [ :new, :create, :edit, :update ]
 
   def index
     @orders = Order.all
@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
     @order.save
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
-    redirect_to root_path
+    redirect_to order_path(@order)
   end
 
   def edit
@@ -32,6 +32,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user, :products, :total_price, :address)
+    params.require(:order).permit(:user, :name, :address)
   end
 end

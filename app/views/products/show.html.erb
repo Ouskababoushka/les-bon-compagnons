@@ -1,4 +1,4 @@
-<p><%= @product.name %> // <%= number_to_currency(@product.price) %>Eur</p>
+<p><%= @product.name %> // <%= number_to_euro(@product.price) %></p>
 <p>
 <% if user_signed_in? && current_user.admin? %>
   <%= link_to "Modifier", edit_product_path(@product) %> |
