@@ -50,17 +50,22 @@
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-          <% if current_user.admin?%>
+          <% if user_signed_in? && current_user.admin?%>
             <%= link_to "Ajouter un Produit", new_product_path, class: "bd-tw-button button"%>
           <% end%>
           </p>
           <p class="control">
-            <a class="button is-primary" href="">
+          <% if user_signed_in? %>
+            <a class="button is-primary" <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %>>
+            </a>
+          <% else %>
+            <a class="button is-primary" href="<%= new_user_session_path %>">
               <span class="icon">
-                <i class="fas fa-download"></i>
+                <i class="far fa-user"></i>
               </span>
               <span>Connexion</span>
             </a>
+            <% end %>
           </p>
         </div>
       </div>
