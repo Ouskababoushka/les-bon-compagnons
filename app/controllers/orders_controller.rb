@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    
+
   end
 
   def new
@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
     @order.save!
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
+    UserMailer.order_confirmation(current_user).deliver_now
     redirect_to order_path(@order)
   end
 
