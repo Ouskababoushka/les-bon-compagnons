@@ -3,5 +3,7 @@
 <%= @order.name %>
 <%= @order.address %>
 <% @order.line_items.each do |item| %>
-  <%= item.quantity %> x <%= item.product.name %> // <%= number_to_euro(item.product.price_cents) %>
+  <%= item.quantity %> x <%= item.product.name %> // <%= number_to_euro(item.product.price) %>
 <% end %>
+
+<%= @order.sub_total %>
