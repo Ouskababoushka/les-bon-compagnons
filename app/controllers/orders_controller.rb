@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    
   end
 
   def new
@@ -19,10 +20,10 @@ class OrdersController < ApplicationController
       @order.line_items << item
       item.cart_id = nil
     end
-    @order.save
+    @order.save!
     Cart.destroy(session[:cart_id])
     session[:cart_id] = nil
-    redirect_to orders_path(order_id: @order.id)
+    redirect_to order_path(@order)
   end
 
   def edit
