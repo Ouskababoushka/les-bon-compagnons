@@ -55,6 +55,11 @@
           <% end%>
           </p>
           <p class="control">
+          <% if user_signed_in? && current_user.admin?%>
+            <%= link_to "Toutes les Commandes", orders_path, class: "bd-tw-button button"%>
+          <% end%>
+          </p>
+          <p class="control">
           <% if user_signed_in? %>
             <a class="button is-primary" <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %>>
             </a>
