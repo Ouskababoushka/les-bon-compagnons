@@ -1,12 +1,14 @@
-// Define variables for your color scheme
-
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
+$brown: #5d4329;
+$blue: #4c6663;
+$yellow: #e1c186;
+$orange: #c07453;
+$green: #a6bf8e;
 $gray: #0E0000;
 $light-gray: black;
 $white: white;
 
+// Bulma Colors Variables
+
+.is-primary {
+  background-color: $green!important;
+}

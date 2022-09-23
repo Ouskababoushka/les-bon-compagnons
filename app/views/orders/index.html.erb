@@ -1,13 +1,15 @@
-<h2>Toutes les commandes</h2>
+<div class="container content box">
+  <h2>Toutes les commandes</h2>
 
-<% @orders.each do |order| %>
-  <%# <%= link_to "Envoyer Email de Confirmation de commande", order_confirmation_path(order), class: "button is-primary" %> 
-  <p>Nom: <%= order.name %></p>
-  <p>Email: <%= order.email %></p>
-  <p>Adresse: <%= order.address %> </p>
-  <p>Produits: </p>
+  <% @orders.each do |order| %>
+    <%# <%= link_to "Envoyer Email de Confirmation de commande", order_confirmation_path(order), class: "button is-primary" %>
+    <p>Nom: <%= order.name %></p>
+    <p>Email: <%= order.email %></p>
+    <p>Adresse: <%= order.address %> </p>
+    <p>Produits: </p>
 
-  <% order.line_items.each do |item| %>
-  <li><%= item.quantity %> x <%= item.product.name %></li>
+    <% order.line_items.each do |item| %>
+    <li><%= item.quantity %> x <%= item.product.name %></li>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -8,12 +8,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head> 
+  </head>
     <% User.first.update_attribute :admin, true %>
 
-  <body><%= render "shared/navbar" %>
+  <body>
+    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
+
+    <%= render "shared/footer" %>
   </body>
 </html>
