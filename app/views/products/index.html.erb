@@ -7,7 +7,7 @@
           <div class="property-card">
             <a href="#">
           <%= link_to product_path(product), :action => 'get' do %>
-              <div class="property-image">
+              <div class="property-image" style="background-image: url('<%= cl_image_path product.photo.key.to_s %>')">
                 <div class="property-image-title">
                   <h5><%= product.name.capitalize%></h5>
                 </div>

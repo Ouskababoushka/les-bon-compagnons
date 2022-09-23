@@ -1,23 +1,28 @@
-<h1>Ajouter un produit</h1>
-
-<%= simple_form_for(@product) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true, autofocus: true, placeholder: "Nom" %>
-  </p>
-  <p>
-    <%= f.label :category %><br>
-    <%= f.text_field :category, required: true, autofocus: true, placeholder: "Catégorie" %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description, required: true, autofocus: true, placeholder: "Description" %>
-  </p>
-  <p>
-    <%= f.label :price_cents %><br>
-    <%= f.number_field :price_cents, required: true %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="container content box">
+<h1 class="title">Ajouter un produit</h1>
+  <%= simple_form_for(@product) do |f| %>
+    <p>
+      <%= f.label :name, class: 'label' %><br>
+      <%= f.text_field :name, required: true, autofocus: true, placeholder: "Nom", class: 'input' %>
+    </p>
+    <p>
+      <%= f.label :category, class: 'label' %><br>
+      <%= f.text_field :category, required: true, autofocus: true, placeholder: "Catégorie", class: 'input' %>
+    </p>
+    <p>
+      <%= f.label :description, class: 'label' %><br>
+      <%= f.text_field :description, required: true, autofocus: true, placeholder: "Description", class: 'textarea' %>
+    </p>
+    <p>
+      <%= f.label :price_cents, class: 'label' %><br>
+      <%= f.number_field :price_cents, required: true, placeholder: "Prix en Centimes ex 9e = 900", class: 'input' %>
+    </p>
+    <p>
+      <%= f.label :photo, class: 'button is-primary' %><br>
+      <%= f.input :photo, as: :file, required: :true %>
+    </p>
+    <p>
+      <%= f.submit "Create Product", class: 'button is-primary' %>
+    </p>
+  <% end %>
+</div>

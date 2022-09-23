@@ -58,7 +58,7 @@ p
   -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-image:url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
+  // background-image:url('<%= cl_image_path @product.photo.key, height: 300, crop: :fill %>');
   background-size:cover;
   background-repeat:no-repeat;
 }
@@ -85,7 +85,7 @@ p
 {
   width:1em;
   height:1em;
-  // background-color:black;
+  background-color: none;
   position:absolute;
   bottom:1em;
   left:1em;
@@ -106,14 +106,8 @@ p
   height:18em;
 }
 
-.property-card:hover .property-social-icons
-{
-  background-color:white;
-}
-
 .property-card:hover .property-social-icons:hover
 {
-  // background-color:blue;
   cursor:pointer;
 }
 
@@ -167,7 +161,7 @@ opacity:1;
     -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-    background-image:url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
+    background-image:url('<%= cl_image_path @product.photo.key, height: 300, crop: :fill %>');
     background-size:cover;
     background-repeat:no-repeat;
   }
