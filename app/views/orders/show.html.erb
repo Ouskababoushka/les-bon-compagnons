@@ -1,9 +1,11 @@
-<h1>Votre Commande a bien été enregistrée, un email de confirmation vous sera bientôt envoyé</h1>
+<div class="container content">
+  <h1>Votre Commande a bien été enregistrée, un email de confirmation vous sera bientôt envoyé</h1>
 
-<%= @order.name %>
-<%= @order.address %>
-<% @order.line_items.each do |item| %>
-  <%= item.quantity %> x <%= item.product.name %> // <%= number_to_euro(item.product.price) %>
-<% end %>
+  <%= @order.name %>
+  <%= @order.address %>
+  <% @order.line_items.each do |item| %>
+    <%= item.quantity %> x <%= item.product.name %> // <%= number_to_euro(item.product.price) %>
+  <% end %>
 
-<%= @order.sub_total %>
+  <%= @order.sub_total %>
+</div>

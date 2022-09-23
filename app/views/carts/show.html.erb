@@ -1,18 +1,32 @@
-<h2>Panier</h2>
+<div class="container content box mt-6">
+  <h2 class="subtitle">Panier</h2>
 
-<% @cart.line_items.each do |line_item| %>
-  Item: <%= line_item.product.name %>/ Price: <%= number_to_currency(line_item.product.price) %>/ Quantity: <%= line_item.quantity %>/ Total Price: <%= number_to_euro(line_item.total_price) %>
-<%# See lineItem section below for explanation of line_item links %>
-  <%= link_to "+ 1", line_item_add_path(:id => line_item), method: :post %>
-  <%= link_to "- 1", line_item_reduce_path(:id => line_item), method: :post %>
-  <%= link_to "Supprimer", line_item_path(line_item), method: :delete %>
+  <% @cart.line_items.each do |line_item| %>
+    Article:
+    <%= line_item.product.name %><br>
+    Quantité: <%= line_item.quantity %> <br>
+    Prix à l'unité: <%= number_to_euro(line_item.product.price) %> <br>
 
-<% end %>
+    <%= link_to "+ 1", line_item_add_path(:id => line_item), method: :post %>
+    <%= link_to "- 1", line_item_reduce_path(:id => line_item), method: :post %>
+    <%= link_to "Supprimer", line_item_path(line_item), method: :delete %>
+    <br>
+    <br>
+  <% end %>
 
-<h3>Total: <%= number_to_euro(@cart.sub_total) %></h3>
-<%# # See Order section below for explanation of new_order_path %>
-<%= link_to "Valider Panier", new_order_path %><br>
-
-<%= link_to "Vider Panier", cart_path(@current_cart),method: :delete, data: {confirm: "Etes-vous sûr compagnons?"} %><br>
-
-<%= link_to "Retour aux Produits", root_path %><br>
+  <h3>Total: <%= number_to_euro(@cart.sub_total) %></h3>
+  <%# # See Order section below for explanation of new_order_path %>
+  <div class="container content">
+    <div class="field is-grouped columns"></div>
+      <div class="control column">
+        <%= link_to "Valider Panier", new_order_path, class: 'button cart-button is-success is-outlined is-small' %><br>
+      </div>
+      <div class="control column">
+        <%= link_to "Vider Panier", cart_path(@current_cart), method: :delete, data: {confirm: "Etes-vous sûr compagnons?"}, class: 'button cart-button is-danger is-outlined is-small' %><br>
+      </div>
+      <div class="control column">
+        <%= link_to "Retour aux Produits", root_path, class: 'button cart-button is-outlined is-small' %><br>
+      </div>
+    </div>
+  </div>
+</div>
