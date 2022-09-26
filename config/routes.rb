@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
 root 'products#index'
+get 'contact' => "pages#contact"
 
 get 'carts/:id' => "carts#show", as: "cart"
 delete 'carts/:id' => "carts#destroy"
