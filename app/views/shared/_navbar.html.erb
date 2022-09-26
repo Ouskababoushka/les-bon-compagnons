@@ -1,4 +1,4 @@
-<nav class="navbar is-transparent">
+<nav class="navbar is-transparent ">
   <div class="navbar-brand">
     <a class="navbar-item" href="<%= products_path %>">
       <%= image_tag("lbc-logo-line-banner.png", size: "300x28" )%>
@@ -23,6 +23,11 @@
             <% if user_signed_in? && current_user.admin?%>
               <%= link_to "Toutes les Commandes", orders_path, class: "bd-tw-button button"%>
             <% end%>
+          </p>
+          <p class="control">
+              <%= link_to cart_path(@current_cart), class: "button is-primary" do %>
+                <i class="fas fa-shopping-cart"></i>
+              <% end %>
           </p>
           <p class="control">
             <% if user_signed_in? %>
