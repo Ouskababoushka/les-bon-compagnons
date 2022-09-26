@@ -1,21 +1,33 @@
-<section class="section">
-  <div class="container content columns mt-6">
-    <div class="card column">
-      <div class="card-image">
-        <figure class="image ">
+<div class="hero-body white-color">
+  <div class="container has-text-centered">
+    <div class="columns is-vcentered">
+      <div class="column is-5">
+        <figure class="image is-4by3">
           <%= cl_image_tag @product.photo.key %>
         </figure>
       </div>
-    </div>
-    <div class="column">
-      <p><%= @product.name %> // <%= number_to_euro(@product.price)  %></p>
-      <p>
-      <% if user_signed_in? && current_user.admin? %>
-        <%= link_to "Modifier", edit_product_path(@product) %> |
-        <%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "Etes vous sûr compagnon ?"} %>
-      <% end %>
-        <%= button_to "Ajouter au panier", line_items_path(product_id: @product.id), class: "button is-primary" %>
-      </p>
+      <div class="column is-6 is-offset-1">
+        <h1 class="title is-2">
+            <%= @product.name %>
+        </h1>
+        <h2 class="subtitle is-4">
+            <%= number_to_euro(@product.price)  %>
+        </h2>
+        <br>
+        <p class="has-text-centered">
+          <% if user_signed_in? && current_user.admin? %>
+            <%= link_to "Modifier", edit_product_path(@product) %> |
+            <%= link_to "Supprimer", product_path(@product), method: :delete, data: {confirm: "Etes vous sûr compagnon ?"} %>
+          <% end %>
+        </p>
+        <p class="has-text-centered">
+          <div class="mt-1">
+            <%= button_to line_items_path(product_id: @product.id), class: "button is-large is-primary" do %>
+              <i class="fas fa-cart-plus"></i>
+            <% end %>
+          </div>
+        </p>
+      </div>
     </div>
   </div>
-</section>
+</div>

@@ -25,9 +25,11 @@
             <% end%>
           </p>
           <p class="control">
+           <% if @current_cart.present? %>
               <%= link_to cart_path(@current_cart), class: "button is-primary" do %>
                 <i class="fas fa-shopping-cart"></i>
               <% end %>
+            <% end %>
           </p>
           <p class="control">
             <% if user_signed_in? %>
