@@ -32,6 +32,11 @@
             <% end %>
           </p>
           <p class="control">
+            <%= link_to contact_path, class: "button is-primary" do %>
+              <i class="fas fa-envelope"></i>
+            <% end %>
+          </p>
+          <p class="control">
             <% if user_signed_in? %>
               <a class="button is-warning has-text-white" <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
               </a>
