@@ -1,19 +1,93 @@
+
 <div class="container content box">
   <%= simple_form_for(@order) do |f| %>
-    <p>
       <%= f.label :name %><br>
       <%= f.text_field :name, required: true, autofocus: true %>
-    </p>
-      <p>
+
       <%= f.label :email %><br>
       <%= f.text_field :email, required: true, autofocus: true %>
-    </p>
-    <p>
       <%= f.label :address %><br>
       <%= f.text_area :address %>
-    </p>
-    <p>
       <%= f.submit %>
-    </p>
   <% end%>
 </div>
+
+<section class="section has-background-light">
+  <div class="container">
+    <div class="has-background-white p-6 p-24-desktop ">
+      <h2 class="title mb-12 mb-20-tablet" contenteditable="false">Addresse de livraison</h2>
+      <div class="columns is-multiline">
+        <div class="column is-12 is-8-desktop">
+          <form action="">
+          <%= simple_form_for(@order) do |f| %>
+            <div class="columns is-multiline">
+              <div class="column is-6 mb-4">
+                <div class="field">
+                  <%= f.label :name, class: "label mb-4" %>
+                  <div class="control">
+                    <%= f.text_field :name, class: "input", required: true, autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-6 mb-4">
+                <div class="field">
+                  <%= f.label :email, class: "label mb-4" %>
+                  <div class="control has-icons-left">
+                    <%= f.text_field :email, class:"input", placeholder:"Email", arialabel:"Email", required: true, autofocus: true %>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-12 mb-4">
+                <div class="columns mb-6">
+                  <div class="column is-6 mb-4">
+                    <div class="field">
+                      <%= f.label :address, class:"label mb-4" %>
+                      <div class="control">
+                        <%= f.text_area :address, class:"input" %>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="column is-12">
+
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="column is-12 is-4-desktop">
+          <div class="mb-12 p-6 p-12-desktop" style="background-color: rgba(76, 102, 99, 1);">
+            <div class="mb-6 pb-8" style="border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
+              <h2 class="title has-text-white mb-6 is-size-4">Commande</h2>
+              <p class="has-text-light">Shipping and additional costs are calculated based on values you have entered.</p>
+            </div>
+            <div class="mb-2 is-flex is-justify-content-space-between is-align-items-center">
+            <% @order.line_items.each do |item| %>
+              <span class="has-text-light"><%= item.quantity %> x <%= item.product.name %></span>
+              <span class="subtitle has-text-white has-text-weight-bold"><%= number_to_euro(item.product.price) %></span>
+            <% end %>
+            </div>
+            <div class="is-flex is-justify-content-space-between is-align-items-center">
+              <span class="is-size-5 has-text-white has-text-weight-bold">Total</span>
+              <span class="is-size-5 has-text-white has-text-weight-bold"><%= @order.sub_total %></span>
+            </div>
+          </div>
+          <div class="has-mw-md mb-12">
+            <div class="is-flex is-align-items-center">
+            </div>
+          </div>
+          <%= f.button :submit, class: "button is-primary is-fullwidth mt-4" %>
+          <%= f.submit, class: "button is-primary is-fullwidth mt-4"  %>
+          <% end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

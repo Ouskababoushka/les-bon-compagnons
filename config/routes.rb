@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-root 'rails/products#index'
+root 'products#index'
 get 'contact' => "pages#contact"
 
 get 'carts/:id' => "carts#show", as: "cart"
